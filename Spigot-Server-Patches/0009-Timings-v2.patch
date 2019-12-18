@@ -901,7 +901,7 @@ index 0d78187ae..490de37b6 100644
 -        SpigotTimings.timeUpdateTimer.startTiming(); // Spigot
 +        MinecraftTimings.timeUpdateTimer.startTiming(); // Spigot // Paper
          // Send time updates to everyone, it will get the right time from the world the player is in.
-         if (this.ticks % 20 == 0) {
+         if (this.ticks % 10000 == 0) {
              for (int i = 0; i < this.getPlayerList().players.size(); ++i) {
 @@ -1052,7 +1072,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
                  entityplayer.playerConnection.sendPacket(new PacketPlayOutUpdateTime(entityplayer.world.getTime(), entityplayer.getPlayerTime(), entityplayer.world.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))); // Add support for per player time
